@@ -11,14 +11,22 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  width: 250px;
-  height: 275px;
-  border: 1px solid black;
+  width: 210px;
+  height: 250px;
   margin: 5px;
 }
 
 .album_cover {
   width: 200px;
   height: 200px;
-  background-size: contain
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.album_title {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: inherit;
 }

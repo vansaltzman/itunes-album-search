@@ -26,7 +26,7 @@ export function parseAlbumData(albums) {
       id: album.collectionId,
       title: album.collectionName || '',
       artist: album.artistName || '',
-      link: album.viewUrl || '',
+      link: album.collectionViewUrl || '',
       coverSmall: album.artworkUrl60 || fallbackCover,
       coverNormal: album.artworkUrl100 || fallbackCover,
       coverLarge: album.artworkUrl100 ? album.artworkUrl100.split('source')[0] + 'source/600x600bb.jpg' : fallbackCover

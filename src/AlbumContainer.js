@@ -25,7 +25,6 @@ class albumContainer extends Component {
   render() { 
     return ( 
       <div>
-        <pre>{JSON.stringify(this.state)}</pre>
         <button
           onClick={()=> this.searchHandler('beck')}
         >

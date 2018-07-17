@@ -7,6 +7,7 @@ export function searchAlbums(term) {
   return axios.get(url, {params: {
     term,
     entity: 'album',
+    attribute: 'artistTerm',
     limit: 100,
   }})
   .then( results => {
@@ -18,7 +19,7 @@ export function searchAlbums(term) {
   })
 }
 
-export const fallbackCover = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/ITunes_12.2_logo.png/100px-ITunes_12.2_logo.png'
+export const fallbackCover = 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Grey.PNG'
 
 export function parseAlbumData(albums) {
   return albums.map( album => {

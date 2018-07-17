@@ -5,6 +5,7 @@ import './App.css';
 import { parseAlbumData, searchAlbums } from './utilities.js'
 
 import AlbumContainer from './AlbumContainer'
+import SearchBar from './SearchBar'
 
 class App extends Component {
   render() {
@@ -29,6 +30,7 @@ class App extends Component {
         > 
           Test
         </button> */}
+        <SearchBar />
         <AlbumContainer />
       </div>
     );

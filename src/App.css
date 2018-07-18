@@ -88,4 +88,5 @@
 
 .search_icon:hover {
   color: black;
+  cursor: pointer;
 }

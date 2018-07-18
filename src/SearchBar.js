@@ -11,7 +11,7 @@ class SearchBar extends Component {
     super(props);
     this.state = { 
       searchInput: '',
-      showButton: false,
+      showButton: false, // Modify logic to use this state item or remove this state item
      }
      this.changeHandler = this.changeHandler.bind(this)
   }
@@ -20,15 +20,12 @@ class SearchBar extends Component {
     this.setState({[e.target.name]: e.target.value})
   }
 
-  searchByArtist(artist) {
-    
-  }
-
   render() { 
 
     const {
       loading,
-      currentSearch,
+      currentArtist,
+      searchHandler,
     } = this.props
 
     return ( 
@@ -37,9 +34,9 @@ class SearchBar extends Component {
           className="search_input" 
           name="searchInput"
           type="text" 
-          placeholder={currentSearch || 'Search by artist'}
+          placeholder={currentArtist || 'Search by artist'}
           onChange={this.changeHandler}
-          onKeyDown={(e)=> e.key === 'Enter' && console.log('enter')}
+          onKeyDown={(e)=> e.key === 'Enter' && searchHandler(this.state.searchInput)}
         />
         {loading && <FontAwesomeIcon 
           icon={faSpinner}
@@ -52,7 +49,7 @@ class SearchBar extends Component {
           icon={faSearch}
           size={'4x'}
           className="search_icon" 
-          onClick={()=> console.log('click')}
+          onClick={()=> searchHandler(this.state.searchInput)}
         />}
       </div>
      );

@@ -7,23 +7,23 @@ import SearchBar from './SearchBar'
 import { fallbackCover } from './utilities'
 import { parseAlbumData, searchAlbums } from './utilities.js'
 
-
-
 class AlbumContainer extends Component {
   constructor(props) {
     super(props);
     this.state = { 
       albums: [],
       loading: false,
+      currentArtist: null,
     }
+    this.searchHandler = this.searchHandler.bind(this)
   }
 
-  searchHandler(query) {
+  searchHandler(artist) {
     this.setState({loading: true}, ()=> {
-      searchAlbums(query)
+      searchAlbums(artist)
       .then( results => {
         const albums = parseAlbumData(results.albums)
-        this.setState({albums, loading: false})
+        this.setState({albums, currentArtist: artist, loading: false})
       })
     })
   }
@@ -31,7 +31,11 @@ class AlbumContainer extends Component {
   render() { 
     return ( 
       <div id="App">
-        <SearchBar />
+        <SearchBar 
+          searchHandler={this.searchHandler}
+          currentArtist={this.state.currentArtist}
+          loading={this.state.loading}
+        />
         <div>
           <button
             onClick={()=> this.searchHandler('beck')}

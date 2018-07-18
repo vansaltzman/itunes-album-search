@@ -34,6 +34,7 @@
   white-space: nowrap;
   overflow: hidden;
   width: inherit;
+  color: black;
 }
 
 .artist_name {
@@ -47,14 +48,18 @@
   width: inherit;
 }
 
-.album_anchor {
+.album {
   text-decoration: none;
-  color: inherit;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: inherit;
+  color: black;
+  cursor: pointer;
 }
 
-.album_anchor:hover {
+.album:hover {
   text-decoration: underline;
-  color: inherit;
 }
 
 .search_input {

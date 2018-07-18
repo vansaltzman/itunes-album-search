@@ -31,17 +31,14 @@ class AlbumContainer extends Component {
   render() { 
     return ( 
       <div id="App">
+
         <SearchBar 
           searchHandler={this.searchHandler}
           currentArtist={this.state.currentArtist}
           loading={this.state.loading}
         />
+
         <div>
-          <button
-            onClick={()=> this.searchHandler('beck')}
-          >
-            Load Beck
-          </button>
           <div className="album_container">
             {this.state.albums.length > 0 && this.state.albums.map( album => {
               return (
@@ -49,11 +46,13 @@ class AlbumContainer extends Component {
                   key={album.id} 
                   album={album}
                   fallbackCover={fallbackCover}
+                  searchHandler={this.searchHandler}
                 />
               )
             })}
           </div>  
         </div>
+
       </div>
     );
   }

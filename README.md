@@ -1,4 +1,10 @@
 
+To run:
+
+- Clone/Download the repo
+- run `npm install` and `npm start`
+- for testing, run `npm test`
+
 Interface for searching the iTunes API by artist name. Some notable features to try:
 
   - Search by artist name

@@ -1,5 +1,4 @@
 import React from 'react'
-import { fallbackCover } from './utilities';
 
 const albumItem = ({ fallbackCover, album: { title, artist, link, coverLarge: cover } }) => {
   return ( 

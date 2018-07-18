@@ -1,9 +1,15 @@
 import React, { Component } from 'react'
+import './App.css';
+
 import AlbumItem from './AlbumItem.js'
+import SearchBar from './SearchBar'
+
 import { fallbackCover } from './utilities'
 import { parseAlbumData, searchAlbums } from './utilities.js'
 
-class albumContainer extends Component {
+
+
+class AlbumContainer extends Component {
   constructor(props) {
     super(props);
     this.state = { 
@@ -24,26 +30,29 @@ class albumContainer extends Component {
 
   render() { 
     return ( 
-      <div>
-        <button
-          onClick={()=> this.searchHandler('beck')}
-        >
-          Load Beck
-        </button>
-        <div className="album_container">
-          {this.state.albums.length > 0 && this.state.albums.map( album => {
-            return (
-              <AlbumItem
-                key={album.id} 
-                album={album}
-                fallbackCover={fallbackCover}
-              />
-            )
-          })}
-        </div>  
+      <div id="App">
+        <SearchBar />
+        <div>
+          <button
+            onClick={()=> this.searchHandler('beck')}
+          >
+            Load Beck
+          </button>
+          <div className="album_container">
+            {this.state.albums.length > 0 && this.state.albums.map( album => {
+              return (
+                <AlbumItem
+                  key={album.id} 
+                  album={album}
+                  fallbackCover={fallbackCover}
+                />
+              )
+            })}
+          </div>  
+        </div>
       </div>
     );
   }
 }
  
-export default albumContainer;
+export default AlbumContainer;

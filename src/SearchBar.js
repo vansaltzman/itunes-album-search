@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faSearch, faSpinner } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faSearch)
 
@@ -10,7 +10,6 @@ class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = { 
-      placeholder: 'Search',
       searchInput: '',
       showButton: false,
      }
@@ -21,12 +20,15 @@ class SearchBar extends Component {
     this.setState({[e.target.name]: e.target.value})
   }
 
+  searchByArtist(artist) {
+    
+  }
+
   render() { 
 
     const {
       loading,
-      searchHandler,
-      setPlaceholderHandler
+      currentSearch,
     } = this.props
 
     return ( 
@@ -35,13 +37,20 @@ class SearchBar extends Component {
           className="search_input" 
           name="searchInput"
           type="text" 
-          placeholder={this.state.placeholder}
+          placeholder={currentSearch || 'Search by artist'}
           onChange={this.changeHandler}
           onKeyDown={(e)=> e.key === 'Enter' && console.log('enter')}
         />
-        {this.state.searchInput && 
+        {loading && <FontAwesomeIcon 
+          icon={faSpinner}
+          spin
+          size={'4x'}
+          className="search_icon" 
+        />}
+        {!loading && this.state.searchInput && // Fix the conditional rendering to not render when focus is outside of container.
         <FontAwesomeIcon 
           icon={faSearch}
+          size={'4x'}
           className="search_icon" 
           onClick={()=> console.log('click')}
         />}

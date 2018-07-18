@@ -1,0 +1,9 @@
+{
+    "extends": "airbnb",
+    "rules": {
+        "implicit-arrow-linebreak": "off",
+        "react/jsx-filename-extension": "off",
+        "react/prop-types": "off",
+        "jsx-a11y/no-noninteractive-element-interactions": "off"
+    }
+}

@@ -1,27 +1,23 @@
-import React from 'react'
+import React from 'react';
 
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch, faSpinner, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
-
-library.add(faSearch)
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch, faSpinner, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 
 const statusIcons = {
-  'LOADING': faSpinner,
-  'IDLE': faSearch,
-  'NO_RESULTS': faSearch,
-  'ERROR': faExclamationTriangle
-}
+  LOADING: faSpinner,
+  SUCCESS: faSearch,
+  NO_RESULTS: faSearch,
+  WELCOME: faSearch,
+  ERROR: faExclamationTriangle,
+};
 
-const SearchBarIcon = ({ status, searchHandler }) => {
-  return ( 
-    <FontAwesomeIcon 
-      icon={statusIcons[status]}
-      spin={status === 'LOADING'}
-      size={'4x'}
-      className="search_icon" 
-    />
-   );
-}
- 
+const SearchBarIcon = ({ status }) => (
+  <FontAwesomeIcon
+    icon={statusIcons[status]}
+    spin={status === 'LOADING'}
+    size="4x"
+    className={status === 'ERROR' ? 'error_icon' : 'search_icon'}
+  />
+);
+
 export default SearchBarIcon;

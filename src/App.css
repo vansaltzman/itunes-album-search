@@ -1,9 +1,9 @@
 .albums_container {
   display: flex;
-  justify-content: center;
   flex-direction: row;
+  justify-content: center;
   flex-wrap: wrap;
-  padding: 10px;
+  margin: 25px;
 }
 
 .item_container {
@@ -84,6 +84,7 @@
   top: 0;
   background-color: white;
   box-shadow: 0 5px 9px 0 rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
 }
 
 .error_icon {

@@ -4,7 +4,7 @@ import './App.css';
 import AlbumItem from './AlbumItem';
 import SearchBar from './SearchBar';
 
-import { parseAlbumData, searchAlbums, fallbackCover } from './utilities';
+import { searchAlbums, fallbackCover } from './utilities';
 
 class AlbumContainer extends Component {
   constructor(props) {

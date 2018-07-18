@@ -27,7 +27,8 @@ const albumItem = (
       </div>
     </a>
 
-    <a className="album" title={`Search for albums by ${artist}`} href={`/${artist}`} onClick={() => searchHandler(artist)}>
+    <a className="album" title={`Search for albums by ${artist}`} onClick={() => searchHandler(artist)}>
+      {/* Next steps: Include href={`/${artist}`} for use with React Router */}
       <h4 className="artist_name">
         {artist}
       </h4>

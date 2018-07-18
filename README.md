@@ -1,3 +1,21 @@
+
+Interface for searching the iTunes API by artist name. Some notable features to try:
+
+  - Search by artist name
+  - Status indicators in search bar
+  - No results/bad request handling
+  - Click album to link out to iTunes page for that album
+  - Click on artist name to perform new search
+
+Would like to add:
+
+  - React router for history and saving searches
+  - Filter options to search by entities other than Artist
+  - Flip album card to show songs or details
+  - Refactor flexbox to CSS grid when appropriate
+  - Smoother loading on album covers
+  - Infinite scroll (paginated results not currently available from API)
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

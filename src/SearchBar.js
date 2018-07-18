@@ -1,29 +1,25 @@
 import React, { Component } from 'react'
 
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch, faSpinner } from '@fortawesome/free-solid-svg-icons'
-
-library.add(faSearch)
+import SearchBarIcon from './SearchBarIcon'
 
 class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = { 
-      searchInput: '',
       showButton: false, // Modify logic to use this state item or remove this state item
      }
-     this.changeHandler = this.changeHandler.bind(this)
   }
 
-  changeHandler(e) {
-    this.setState({[e.target.name]: e.target.value})
+  componentDidMount() {
+    this.searchBox.focus()
   }
 
   render() { 
 
     const {
-      loading,
+      status,
+      searchInput,
+      changeHandler,
       currentArtist,
       searchHandler,
     } = this.props
@@ -31,26 +27,24 @@ class SearchBar extends Component {
     return ( 
       <div className="search_bar">
         <input 
-          className="search_input" 
+          value={searchInput}
+          className="search_input"
+          ref={(searchBox) => this.searchBox = searchBox} 
           name="searchInput"
           type="text" 
           placeholder={currentArtist || 'Search by artist'}
-          onChange={this.changeHandler}
-          onKeyDown={(e)=> e.key === 'Enter' && searchHandler(this.state.searchInput)}
+          onChange={changeHandler}
+          onKeyDown={(e)=> {
+            if (e.key === 'Enter') {
+              searchHandler(searchInput)
+            }
+          }}
         />
-        {loading && <FontAwesomeIcon 
-          icon={faSpinner}
-          spin
-          size={'4x'}
-          className="search_icon" 
-        />}
-        {!loading && this.state.searchInput && // Fix the conditional rendering to not render when focus is outside of container.
-        <FontAwesomeIcon 
-          icon={faSearch}
-          size={'4x'}
-          className="search_icon" 
-          onClick={()=> searchHandler(this.state.searchInput)}
-        />}
+        {searchInput && 
+          <div onClick={()=> searchHandler(searchInput)}>
+            <SearchBarIcon status={status} />
+          </div>
+        }
       </div>
      );
   }

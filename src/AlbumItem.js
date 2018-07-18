@@ -4,7 +4,7 @@ const albumItem = ({ fallbackCover, album: { title, artist, link, coverLarge: co
   return ( 
       <div className="item_container">
 
-        <a className="album" href={link} target="_blank" title={title + ' by ' + artist}>
+        <a className="album" href={link} target="_blank" title={`${title} by ${artist}`}>
           <div style={{display: 'block'}}>
             <div
               className="album_cover"
@@ -18,7 +18,7 @@ const albumItem = ({ fallbackCover, album: { title, artist, link, coverLarge: co
           </div>
         </a>
 
-        <a className="album" title={artist}>
+        <a className="album" title={`Search for albums by ${artist}`}>
           <h4 className="artist_name"
             onClick={()=> searchHandler(artist)}
           >
